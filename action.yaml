@@ -1,0 +1,22 @@
+name: Start a run in a Terraform Cloud workspace
+author: Mattias Fjellström (mattias.fjellstrom [at] gmail.com)
+description: Start a run in a Terraform Cloud workspace
+
+inputs:
+  organization:
+    description: Terraform Cloud organization name
+  workspace:
+    description: Terraform Cloud workspace name
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - -organization
+    - ${{ inputs.organization }}
+    - -workspace
+    - ${{ inputs.workspace }}
+
+branding:
+  icon: star
+  color: blue
